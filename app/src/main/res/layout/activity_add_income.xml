@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddIncome">
+    //CHANGE THE CONSTRAINT LAYOUT TO RELATIVE LAYOUT
+
+    //AMOUNT
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/incamtlayout">
+
+        //SHOWS TEXT
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:text="AMOUNT"
+            android:textColor="#0E0D0D"
+            android:textSize="16sp"
+            android:layout_weight="0.5"/>
+
+        //PLACE WHERE USER ADDS DATA
+        <EditText
+            android:id="@+id/incamt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="12dp"
+            android:ems="10"
+            android:hint="Add Amount"
+            android:inputType="number"
+            android:paddingLeft="60dp"
+            android:textColor="#756E6E"
+            android:textSize="12sp"
+            android:layout_weight="0.5"/>
+    </LinearLayout>
+
+    //SOURCE OF INCOME
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/incamtlayout"
+        android:id="@+id/incsrclayout"
+        android:layout_marginTop="16sp">
+
+        //SHOWS TEXT
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="SOURCE OF INCOME"
+            android:textSize="16sp"
+            android:textColor="#0E0D0D"
+            android:paddingLeft="16sp"
+            android:layout_weight="0.5"/>
+
+        //PLACE WHERE USER ADDS DATA
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Income Source"
+            android:id="@+id/incsrc"
+            android:textColor="#756E6E"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:layout_marginEnd="12dp"/>
+    </LinearLayout>
+
+    //PLACE
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/incsrclayout"
+        android:id="@+id/incdtelayout"
+        android:layout_marginTop="16sp">
+
+        //SHOWS TEXT
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="DATE"
+            android:textSize="16sp"
+            android:textColor="#0E0D0D"
+            android:paddingLeft="16sp"
+            android:layout_weight="0.5"/>
+
+        //PLACE WHERE USER ADDS DATA
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Date"
+            android:id="@+id/incdte"
+            android:textColor="#756E6E"
+            android:textSize="12sp"
+            android:layout_weight="0.5"
+            android:layout_marginEnd="16dp"/>
+    </LinearLayout>
+
+    //BUTTON TO ADD DATA TO DATABASE
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addincomebtn"
+        android:layout_below="@+id/incdtelayout"
+        android:layout_marginTop="28dp"
+        android:layout_centerHorizontal="true"
+        android:text="ADD INCOME"
+        android:enabled="false"/>
+
+</RelativeLayout>

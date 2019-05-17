@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    tools:context=".MainActivity">
+    //CHANGE THE CONSTRAINT LAYOUT TO RELATIVE LAYOUT
+
+    //INCOME HEADING
+    <LinearLayout
+        android:id="@+id/linearLayoutIncme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="#BCBEBE"
+        android:elevation="5dp"
+        android:padding="8dp">
+
+        INCOME TEXT
+        <TextView
+            android:id="@+id/incometext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:paddingLeft="40dp"
+            android:text="INCOME"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        //INCOME AMOUNT
+        <TextView
+            android:id="@+id/incomeamt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:gravity="right"
+            android:paddingRight="56dp"
+            android:text="0.00 €"
+            android:textStyle="bold"
+            android:textColor="#07C414"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    //2 TO 3 LATEST ENTRIES OF INCOME
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayoutIncme"
+        android:id="@+id/Incmelist"
+        android:padding="4dp"
+        ></android.support.v7.widget.RecyclerView>
+
+    //ADD INCOME DATA
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addincome"
+        android:layout_below="@+id/Incmelist">
+
+        //ADD SIGN
+        <ImageView
+            android:id="@+id/addincomeimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:src="@drawable/baseline_add_box_black_18dp" />
+
+    </LinearLayout>
+
+    //EXPENDITURE HEADING
+    <LinearLayout
+        android:id="@+id/linearLayoutxpnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addincome"
+        android:layout_marginTop="2dp"
+        android:background="#BCBEBE"
+        android:elevation="5dp"
+        android:padding="8dp">
+
+        EXPENSE TEXT
+        <TextView
+            android:id="@+id/expendtext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/linearLayoutxpnd"
+            android:layout_weight="0.6"
+            android:paddingLeft="40dp"
+            android:text="EXPENDITURE"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        EXPENSE AMOUNT
+        <TextView
+            android:id="@+id/expendamt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:gravity="right"
+            android:paddingRight="56dp"
+            android:text="0.00 €"
+            android:textStyle="bold"
+            android:textColor="#FA0505"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    //2 TO 3 LATEST ENTRIES OF INCOME
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayoutxpnd"
+        android:id="@+id/Xpnselist"
+        android:padding="4dp"
+        ></android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>
