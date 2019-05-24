@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Latest Income List
         Incmelist.setLayoutManager(new LinearLayoutManager(this));
-        String[] Income = {"Salary"};    //NOT FINAL. THESE WILL THE 3 LATEST ENTRIES
+        String[] Income = {"Salary", "Rent", "Others"};    //NOT FINAL. THESE WILL THE 3 LATEST ENTRIES
         Incmelist.setAdapter(new IncmeAdaptor(Income));
 
         //Income Add Image
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Latest Expense List
         Xpnselist.setLayoutManager(new LinearLayoutManager(this));
-        String[] Expenditure = {"Travel", "Food", "Bills", "Fees", "Rent"};    //NOT FINAL. THESE WILL THE 3 LATEST ENTRIES
+        String[] Expenditure = {"Travel", "Food", "Fees"};    //NOT FINAL. THESE WILL THE 3 LATEST ENTRIES
         Xpnselist.setAdapter(new XpnseAdaptor(Expenditure));
 
     }

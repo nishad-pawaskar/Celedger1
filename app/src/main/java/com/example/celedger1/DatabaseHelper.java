@@ -31,12 +31,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertincomedata(String source, String amount, String date){
+    public boolean insertincomedata(String source, String amount, String date, String paymentmethod){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_4, source);
         contentValues.put(COL_5, amount);
         contentValues.put(COL_2, date);
+        contentValues.put(COL_3, paymentmethod);
         long result = db.insert(INCOME_TABLE, null, contentValues);
         if(result == -1)
             return false;

@@ -8,20 +8,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.Calendar;
 
 public class AddIncome extends AppCompatActivity {
 
     DatabaseHelper income_db;
-    EditText addincamt, addincsrc, addincdte;
+    EditText addincamt, addincdte;
+    MaterialBetterSpinner addinccat, addincPM;
     Button addincomebtn;
 
     DatePickerDialog incdatePicker;
+
+    String[] IncomeCat = {"Salary", "Money Transfer", "Others"}, PayMethod = {"Cash", "Online Transfer"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +37,20 @@ public class AddIncome extends AppCompatActivity {
         income_db = new DatabaseHelper(this);
 
         addincamt = (EditText) findViewById(R.id.incamt);
-        addincsrc = (EditText) findViewById(R.id.incsrc);
+        addinccat = (MaterialBetterSpinner) findViewById(R.id.incsrc);
+        addincPM = (MaterialBetterSpinner) findViewById(R.id.incpm);
         addincdte = (EditText) findViewById(R.id.incdte);
         addincomebtn = (Button) findViewById(R.id.addincomebtn);
 
+        //INCOME CATEGORY ADAPTOR
+        ArrayAdapter<String> IncomeCategory = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, IncomeCat);
+        addinccat.setAdapter(IncomeCategory);
+
+        //PAYMENT OPTION ADAPTOR
+        ArrayAdapter<String> paymentCat = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, PayMethod);
+        addincPM.setAdapter(paymentCat);
+
+        //LISTENER FOR DATE
         addincdte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +73,8 @@ public class AddIncome extends AppCompatActivity {
         });
 
         addincamt.addTextChangedListener(addincometextwatcher);
-        addincsrc.addTextChangedListener(addincometextwatcher);
+        addinccat.addTextChangedListener(addincometextwatcher);
+        addincPM.addTextChangedListener(addincometextwatcher);
         addincdte.addTextChangedListener(addincometextwatcher);
 
         AddInc();
@@ -73,10 +90,11 @@ public class AddIncome extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             String incmeamt = addincamt.getText().toString().trim();
-            String incmesrc = addincsrc.getText().toString().trim();
+            String incmesrc = addinccat.getText().toString().trim();
+            String incmepm = addincPM.getText().toString().trim();
             String incmedte = addincdte.getText().toString().trim();
 
-            addincomebtn.setEnabled(!incmeamt.isEmpty() && !incmesrc.isEmpty() && !incmedte.isEmpty());
+            addincomebtn.setEnabled(!incmeamt.isEmpty() && !incmesrc.isEmpty() && !incmepm.isEmpty() && !incmedte.isEmpty());
         }
 
         @Override
@@ -89,7 +107,7 @@ public class AddIncome extends AppCompatActivity {
         addincomebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isInserted = income_db.insertincomedata(addincsrc.getText().toString(), addincamt.getText().toString(), addincdte.getText().toString());
+                boolean isInserted = income_db.insertincomedata(addinccat.getText().toString(), addincamt.getText().toString(), addincdte.getText().toString(), addincPM.getText().toString());
                 if(isInserted == true)
                     Toast.makeText(AddIncome.this, "Data Inserted", Toast.LENGTH_LONG).show();
                 else

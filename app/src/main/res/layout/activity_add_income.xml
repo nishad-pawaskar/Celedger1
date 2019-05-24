@@ -43,7 +43,7 @@
             android:layout_weight="0.5"/>
     </LinearLayout>
 
-    //SOURCE OF INCOME
+    //INCOME CATEGORY
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,10 +63,10 @@
             android:layout_weight="0.5"/>
 
         //PLACE WHERE USER ADDS DATA
-        <EditText
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Enter Income Source"
+            android:hint="Select Catagory"
             android:id="@+id/incsrc"
             android:textColor="#756E6E"
             android:textSize="12sp"
@@ -74,11 +74,42 @@
             android:layout_marginEnd="12dp"/>
     </LinearLayout>
 
-    //PLACE
+    //PAYMENT METHOD
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/incsrclayout"
+        android:id="@+id/incPMlayout"
+        android:layout_marginTop="16sp">
+
+        //SHOWS TEXT
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Payment Method"
+            android:textSize="16sp"
+            android:textColor="#0E0D0D"
+            android:paddingLeft="16sp"
+            android:layout_weight="0.5"/>
+
+        //PLACE WHERE USER ADDS DATA
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Select Payment Option"
+            android:id="@+id/incpm"
+            android:textColor="#756E6E"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:layout_marginEnd="12dp"/>
+    </LinearLayout>
+
+    //DATE
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/incPMlayout"
         android:id="@+id/incdtelayout"
         android:layout_marginTop="16sp">
 
