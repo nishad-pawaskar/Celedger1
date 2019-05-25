@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent startIntentIncme = new Intent(getApplicationContext(), IncomeActivity.class);
 
-               startActivity(startIntentIncme);
+                startActivity(startIntentIncme);
             }
         });
 
@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
         linearaddincomebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent startIntentaddincome = new Intent(getApplicationContext(),AddIncome.class);
+                Intent startIntentaddincome = new Intent(getApplicationContext(),AddIncome.class);
 
-               startActivity(startIntentaddincome);
+                startActivity(startIntentaddincome);
             }
         });
 

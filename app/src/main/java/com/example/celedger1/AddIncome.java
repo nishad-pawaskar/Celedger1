@@ -69,7 +69,7 @@ public class AddIncome extends AppCompatActivity {
                 },ic_year,ic_month,ic_day);
                 incdatePicker.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 incdatePicker.show();
-        }
+            }
         });
 
         addincamt.addTextChangedListener(addincometextwatcher);

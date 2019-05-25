@@ -20,7 +20,7 @@ public class ExpendActivity extends AppCompatActivity {
         //SHOWS SCROLLABLE EXPENSE LIST (LIST WILL INCLUDE USER ENTRIES)
         ExpenselistRCV.setLayoutManager(new LinearLayoutManager(this));
         String[] Expenditure = {"Travel", "Food", "Bills", "Fees", "Rent", "Travel", "Food", "Bills", "Fees", "Rent", "Travel", "Food", "Bills", "Fees", "Rent", "Travel", "Food", "Bills", "Fees", "Rent", "Travel", "Food", "Bills", "Fees", "Rent"};
-        ExpenselistRCV.setAdapter(new IncmeAdaptor(Expenditure));
+        ExpenselistRCV.setAdapter(new XpnseAdaptor(Expenditure));
 
 
 

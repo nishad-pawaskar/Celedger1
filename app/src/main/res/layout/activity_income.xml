@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.00€"
+            android:id="@+id/Totalincome"
             android:layout_weight="0.5"
             android:textStyle="bold"
             android:textSize="14dp"
