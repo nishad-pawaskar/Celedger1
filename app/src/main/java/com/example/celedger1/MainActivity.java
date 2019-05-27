@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 //CLASS FOR MAIN ACTIVITY
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         //DECLARATION & DEFINITION
         LinearLayout linearLayoutIncme = findViewById(R.id.linearLayoutIncme);
         LinearLayout linearLayoutxpnd = findViewById(R.id.linearLayoutxpnd);
+        TextView ExpenseAmount = findViewById(R.id.expendamt);
         LinearLayout linearaddincomebtn = findViewById(R.id.addincome);
         LinearLayout linearaddxpensebtn = findViewById(R.id.addxpense);
         RecyclerView Incmelist = findViewById(R.id.Incmelist);
@@ -38,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Latest Income List
-        /*Incmelist.setLayoutManager(new LinearLayoutManager(this));
-        String[] Income = {"Salary", "Rent", "Others"};    //NOT FINAL. THESE WILL THE 3 LATEST ENTRIES
+        Incmelist.setLayoutManager(new LinearLayoutManager(this));
+        /*String[] Income = {"Salary", "Rent", "Others"};    //NOT FINAL. THESE WILL THE 3 LATEST ENTRIES
         Incmelist.setAdapter(new IncmeAdaptor(Income));*/
 
         //Income Add Image
@@ -61,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startIntentxpnd);
             }
         });
+
+        //ExpenseAmount.setText(ExpendActivity.exp);
 
         //Latest Expense List
         Xpnselist.setLayoutManager(new LinearLayoutManager(this));

@@ -132,4 +132,47 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayoutsaving"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#BCBEBE"
+        android:elevation="5dp"
+        android:padding="8dp">
+
+        EXPENSE TEXT
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/linearLayoutsaving"
+            android:layout_weight="0.5"
+            android:text="SAVINGS"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:gravity="center"/>
+
+        EXPENSE AMOUNT
+        <TextView
+            android:id="@+id/savingamt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textAlignment="textEnd"
+            android:text="0.00  "
+            android:textStyle="bold"
+            android:textColor="#2660F0"
+            android:textSize="10sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:paddingRight="56dp"
+            android:text="  €"
+            android:textStyle="bold"
+            android:textColor="#2660F0"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
 </RelativeLayout>
