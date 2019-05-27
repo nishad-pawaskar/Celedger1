@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:id="@+id/incamtlayout">
+        android:id="@+id/expamtlayout">
 
         //SHOWS TEXT
         <TextView
@@ -27,7 +27,7 @@
 
         //PLACE WHERE USER ADDS DATA
         <EditText
-            android:id="@+id/incamt"
+            android:id="@+id/expamt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -40,7 +40,7 @@
             android:paddingLeft="60dp"
             android:textColor="#756E6E"
             android:textSize="12sp"
-            android:layout_weight="1"/>
+            android:layout_weight="0.5"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,15 +49,15 @@
             android:paddingRight="16dp"
             android:text="€"
             android:textColor="#0E0D0D"
-            android:textSize="16sp" />
+            android:textSize="16sp"/>
     </LinearLayout>
 
-    //INCOME CATEGORY
+    //EXPENSE CATEGORY
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/incamtlayout"
-        android:id="@+id/incsrclayout"
+        android:layout_below="@+id/expamtlayout"
+        android:id="@+id/expsrclayout"
         android:layout_marginTop="16sp">
 
         //SHOWS TEXT
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="SOURCE OF INCOME"
+            android:text="PURPOSE OF EXPENSE"
             android:textSize="16sp"
             android:textColor="#0E0D0D"
             android:paddingLeft="16sp"
@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Select Catagory"
-            android:id="@+id/incsrc"
+            android:id="@+id/expsrc"
             android:textColor="#756E6E"
             android:textSize="12sp"
             android:layout_weight="1"
@@ -87,8 +87,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/incsrclayout"
-        android:id="@+id/incPMlayout"
+        android:layout_below="@+id/expsrclayout"
+        android:id="@+id/expPMlayout"
         android:layout_marginTop="16sp">
 
         //SHOWS TEXT
@@ -107,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Select Payment Option"
-            android:id="@+id/incpm"
+            android:id="@+id/exppm"
             android:textColor="#756E6E"
             android:textSize="12sp"
             android:layout_weight="1"
@@ -118,8 +118,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/incPMlayout"
-        android:id="@+id/incdtelayout"
+        android:layout_below="@+id/expPMlayout"
+        android:id="@+id/expdtelayout"
         android:layout_marginTop="16sp">
 
         //SHOWS TEXT
@@ -138,7 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Enter Date"
-            android:id="@+id/incdte"
+            android:id="@+id/expdte"
             android:textColor="#756E6E"
             android:textSize="12sp"
             android:layout_weight="0.5"
@@ -149,11 +149,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addincomebtn"
-        android:layout_below="@+id/incdtelayout"
+        android:id="@+id/addexpensebtn"
+        android:layout_below="@+id/expdtelayout"
         android:layout_marginTop="28dp"
         android:layout_centerHorizontal="true"
-        android:text="ADD INCOME"
+        android:text="ADD EXPENSE"
         android:enabled="false"/>
 
 </RelativeLayout>

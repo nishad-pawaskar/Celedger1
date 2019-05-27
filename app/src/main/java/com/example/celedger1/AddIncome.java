@@ -1,6 +1,7 @@
 package com.example.celedger1;
 
 import android.app.DatePickerDialog;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -21,13 +22,15 @@ import java.util.Calendar;
 public class AddIncome extends AppCompatActivity {
 
     DatabaseHelper income_db;
+    SQLiteDatabase incdb;
+
     EditText addincamt, addincdte;
     MaterialBetterSpinner addinccat, addincPM;
     Button addincomebtn;
 
     DatePickerDialog incdatePicker;
 
-    String[] IncomeCat = {"Salary", "Money Transfer", "Others"}, PayMethod = {"Cash", "Online Transfer"};
+    String[] IncomeCat = {"Salary", "Payment", "Others"}, PayMethod = {"Cash", "Online Transfer"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +38,13 @@ public class AddIncome extends AppCompatActivity {
         setContentView(R.layout.activity_add_income);
 
         income_db = new DatabaseHelper(this);
+        incdb = income_db.getWritableDatabase();
 
-        addincamt = (EditText) findViewById(R.id.incamt);
-        addinccat = (MaterialBetterSpinner) findViewById(R.id.incsrc);
-        addincPM = (MaterialBetterSpinner) findViewById(R.id.incpm);
-        addincdte = (EditText) findViewById(R.id.incdte);
-        addincomebtn = (Button) findViewById(R.id.addincomebtn);
+        addincamt = findViewById(R.id.incamt);
+        addinccat = findViewById(R.id.incsrc);
+        addincPM = findViewById(R.id.incpm);
+        addincdte = findViewById(R.id.incdte);
+        addincomebtn = findViewById(R.id.addincomebtn);
 
         //INCOME CATEGORY ADAPTOR
         ArrayAdapter<String> IncomeCategory = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, IncomeCat);

@@ -1,5 +1,7 @@
 package com.example.celedger1;
 
+import android.content.Context;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,10 +14,19 @@ import android.widget.TextView;
 public class IncmeAdaptor extends RecyclerView.Adapter<IncmeAdaptor.IncmeViewHolder> {
 
     //DECLARATIONS
-    private String[] data;
-    public IncmeAdaptor(String[] data)
+    //private String[] data;
+
+    public String ic_cat;
+    public Float ic_amt;
+
+    private Context icContext;
+    private Cursor icCursor;
+
+    public IncmeAdaptor(Context context, Cursor cursor)
     {
-        this.data = data;
+        //this.data = data;
+        icContext = context;
+        icCursor = cursor;
     }
 
 
@@ -31,25 +42,43 @@ public class IncmeAdaptor extends RecyclerView.Adapter<IncmeAdaptor.IncmeViewHol
     //BIND THE VIEW TOGETHER
     @Override
     public void onBindViewHolder(@NonNull IncmeViewHolder incmeViewHolder, int i) {
-        String title = data[i];
-        incmeViewHolder.Incmetitle.setText(title);
+        if(!icCursor.moveToPosition(i)){
+            return;
+        }
+        ic_cat = icCursor.getString(icCursor.getColumnIndex(CeledgerContract.IncomeEntry.COL_4));
+        ic_amt = icCursor.getFloat(icCursor.getColumnIndex(CeledgerContract.IncomeEntry.COL_5));
 
+        incmeViewHolder.Incmetitle.setText(ic_cat);
+        incmeViewHolder.ic_amt.setText(String.valueOf(ic_amt));
     }
 
     //NUMBER OF ITEMS TO BE SHOWN IN THE VIEW
     @Override
     public int getItemCount() {
-        return data.length;
+        //return data.length;
+        return icCursor.getCount();
+    }
+
+    public void swapicCursor(Cursor newCursor){
+        if(icCursor != null){
+            icCursor.close();
+        }
+        icCursor = newCursor;
+        if(newCursor != null){
+            notifyDataSetChanged();
+        }
     }
 
     //CREATE A VIEW
     public class IncmeViewHolder extends RecyclerView.ViewHolder{
         ImageView imgicon;
         TextView Incmetitle;
+        TextView ic_amt;
         public IncmeViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgicon = (ImageView) itemView.findViewById(R.id.imgicon);
-            Incmetitle = (TextView) itemView.findViewById(R.id.Incmetitle);
+            imgicon = itemView.findViewById(R.id.imgicon);
+            Incmetitle = itemView.findViewById(R.id.Incmetitle);
+            ic_amt = itemView.findViewById(R.id.ic_amt);
         }
     }
 
