@@ -39,7 +39,9 @@
         android:paddingLeft="16dp"
         android:id="@+id/Xpnsetitle"
         />
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,8 +50,21 @@
         android:textSize="10sp"
         android:padding="8dp"
         android:paddingLeft="16dp"
-        android:text="Details"
+        android:text="Date"
+        android:id="@+id/xpnsedte"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:textSize="10sp"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:text="Payment Method"
+        android:id="@+id/xpnsepm"
+        />
+</LinearLayout>
 </LinearLayout>
     <TextView
         android:layout_width="wrap_content"

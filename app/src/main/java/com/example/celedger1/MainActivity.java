@@ -1,6 +1,8 @@
 package com.example.celedger1;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +13,12 @@ import android.widget.TextView;
 
 //CLASS FOR MAIN ACTIVITY
 public class MainActivity extends AppCompatActivity {
+
+    int layout = 1;
+
+    DatabaseHelper xpense_db;
+    SQLiteDatabase expdb;
+    XpnseAdaptor xpAdaptor;
 
     //CREATE LAYOUT
     @Override
@@ -69,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
         //Latest Expense List
         Xpnselist.setLayoutManager(new LinearLayoutManager(this));
         //String[] Expenditure = {"Travel", "Food", "Fees"};    //NOT FINAL. THESE WILL THE 3 LATEST ENTRIES
-        //Xpnselist.setAdapter(new XpnseAdaptor(Expenditure));
+        /*xpAdaptor = new XpnseAdaptor(this, getAllXpense());
+        Xpnselist.setAdapter(xpAdaptor);*/
 
         linearaddxpensebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,5 +89,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private Cursor getAllXpense(){
+        Cursor cursor = expdb.query(CeledgerContract.XpenseEntry.XPENSE_TABLE,
+                null,
+                null,
+                null,
+                null,
+                null,
+                CeledgerContract.XpenseEntry.TIMESTAMP +" DESC");
+        return cursor;
     }
 }

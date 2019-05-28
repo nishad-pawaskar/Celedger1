@@ -14,10 +14,9 @@ import android.widget.TextView;
 public class IncmeAdaptor extends RecyclerView.Adapter<IncmeAdaptor.IncmeViewHolder> {
 
     //DECLARATIONS
-    //private String[] data;
-
     public String ic_cat;
     public Float ic_amt;
+    public String ic_pm;
 
     private Context icContext;
     private Cursor icCursor;
@@ -45,11 +44,14 @@ public class IncmeAdaptor extends RecyclerView.Adapter<IncmeAdaptor.IncmeViewHol
         if(!icCursor.moveToPosition(i)){
             return;
         }
+
         ic_cat = icCursor.getString(icCursor.getColumnIndex(CeledgerContract.IncomeEntry.COL_4));
         ic_amt = icCursor.getFloat(icCursor.getColumnIndex(CeledgerContract.IncomeEntry.COL_5));
+        ic_pm = icCursor.getString(icCursor.getColumnIndex(CeledgerContract.IncomeEntry.COL_3));
 
         incmeViewHolder.Incmetitle.setText(ic_cat);
         incmeViewHolder.ic_amt.setText(String.valueOf(ic_amt));
+        incmeViewHolder.ic_pm.setText(ic_pm);
     }
 
     //NUMBER OF ITEMS TO BE SHOWN IN THE VIEW
@@ -73,12 +75,16 @@ public class IncmeAdaptor extends RecyclerView.Adapter<IncmeAdaptor.IncmeViewHol
     public class IncmeViewHolder extends RecyclerView.ViewHolder{
         ImageView imgicon;
         TextView Incmetitle;
+        TextView ic_pm;
         TextView ic_amt;
+        TextView ic_dte;
         public IncmeViewHolder(@NonNull View itemView) {
             super(itemView);
             imgicon = itemView.findViewById(R.id.imgicon);
             Incmetitle = itemView.findViewById(R.id.Incmetitle);
             ic_amt = itemView.findViewById(R.id.ic_amt);
+            ic_pm = itemView.findViewById(R.id.Incmepm);
+            ic_dte = itemView.findViewById(R.id.Incmedte);
         }
     }
 

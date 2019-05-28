@@ -15,6 +15,7 @@ public class ExpendActivity extends AppCompatActivity {
     SQLiteDatabase expdb;
     XpnseAdaptor xpAdaptor;
     float xpTotal;
+    int layout = 2;
 
     //CREATE LAYOUT
     @Override
