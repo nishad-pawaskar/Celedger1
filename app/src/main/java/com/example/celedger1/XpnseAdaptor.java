@@ -16,6 +16,7 @@ public class XpnseAdaptor extends RecyclerView.Adapter<XpnseAdaptor.XpnseViewHol
     public String xp_cat;
     public Float xp_amt;
     public String xp_pm;
+    public String xp_dte;
 
     private Context xpContext;
     private Cursor xpCursor;
@@ -52,10 +53,12 @@ public class XpnseAdaptor extends RecyclerView.Adapter<XpnseAdaptor.XpnseViewHol
         xp_cat = xpCursor.getString(xpCursor.getColumnIndex(CeledgerContract.XpenseEntry.CATEGORY));
         xp_amt = xpCursor.getFloat(xpCursor.getColumnIndex(CeledgerContract.XpenseEntry.AMOUNT));
         xp_pm = xpCursor.getString(xpCursor.getColumnIndex(CeledgerContract.XpenseEntry.PAYMENTMETHOD));
+        xp_dte = xpCursor.getString(xpCursor.getColumnIndex(CeledgerContract.XpenseEntry.DATE));
 
         xpnseViewHolder.Xpnsetitle.setText(xp_cat);
         xpnseViewHolder.xp_amt.setText(String.valueOf(xp_amt));
         xpnseViewHolder.xp_pm.setText(xp_pm);
+        xpnseViewHolder.xp_dte.setText(xp_dte);
     }
 
 
@@ -89,12 +92,14 @@ public class XpnseAdaptor extends RecyclerView.Adapter<XpnseAdaptor.XpnseViewHol
         TextView Xpnsetitle;
         TextView xp_amt;
         TextView xp_pm;
+        TextView xp_dte;
         public XpnseViewHolder(@NonNull View itemView) {
             super(itemView);
             imgicon = itemView.findViewById(R.id.imgicon);
             Xpnsetitle = itemView.findViewById(R.id.Xpnsetitle);
             xp_amt = itemView.findViewById(R.id.xp_amt);
             xp_pm = itemView.findViewById(R.id.xpnsepm);
+            xp_dte = itemView.findViewById(R.id.xpnsedte);
         }
     }
 

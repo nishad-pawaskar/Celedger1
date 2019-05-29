@@ -17,6 +17,7 @@ public class IncmeAdaptor extends RecyclerView.Adapter<IncmeAdaptor.IncmeViewHol
     public String ic_cat;
     public Float ic_amt;
     public String ic_pm;
+    public String ic_dte;
 
     private Context icContext;
     private Cursor icCursor;
@@ -48,10 +49,12 @@ public class IncmeAdaptor extends RecyclerView.Adapter<IncmeAdaptor.IncmeViewHol
         ic_cat = icCursor.getString(icCursor.getColumnIndex(CeledgerContract.IncomeEntry.COL_4));
         ic_amt = icCursor.getFloat(icCursor.getColumnIndex(CeledgerContract.IncomeEntry.COL_5));
         ic_pm = icCursor.getString(icCursor.getColumnIndex(CeledgerContract.IncomeEntry.COL_3));
+        ic_dte = icCursor.getString(icCursor.getColumnIndex(CeledgerContract.IncomeEntry.COL_2));
 
         incmeViewHolder.Incmetitle.setText(ic_cat);
         incmeViewHolder.ic_amt.setText(String.valueOf(ic_amt));
         incmeViewHolder.ic_pm.setText(ic_pm);
+        incmeViewHolder.ic_dte.setText(ic_dte);
     }
 
     //NUMBER OF ITEMS TO BE SHOWN IN THE VIEW
