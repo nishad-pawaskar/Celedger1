@@ -16,8 +16,6 @@ public class IncomeActivity extends AppCompatActivity {
     IncmeAdaptor icAdaptor;
     float icTotal;
 
-    private static final String TAG = IncomeActivity.class.getSimpleName();
-
     //CREATE LAYOUT
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +31,10 @@ public class IncomeActivity extends AppCompatActivity {
 
         //SHOWS SCROLLABLE INCOME LIST (LIST WILL INCLUDE USER ENTRIES)
         IncmelistRCV.setLayoutManager(new LinearLayoutManager(this));
-        //String[] Income = {"Salary", "Others", "Salary", "Bonus", "Rent", "Others", "Salary", "Bonus", "Rent", "Others", "Salary", "Bonus", "Rent", "Others", "Salary", "Bonus", "Rent", "Others"};
         icAdaptor = new IncmeAdaptor(this, getAllIncome());
         IncmelistRCV.setAdapter(icAdaptor);
 
         Cursor dcursor = incdb.rawQuery("SELECT SUM(" + CeledgerContract.IncomeEntry.COL_5 + ") as Total FROM " + CeledgerContract.IncomeEntry.INCOME_TABLE, null);
-
         if (dcursor.moveToFirst()) {
             icTotal = dcursor.getFloat(dcursor.getColumnIndex("Total"));// get final total
             }

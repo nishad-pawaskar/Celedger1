@@ -15,7 +15,6 @@ public class ExpendActivity extends AppCompatActivity {
     SQLiteDatabase expdb;
     XpnseAdaptor xpAdaptor;
     float xpTotal;
-    int layout = 2;
 
     //CREATE LAYOUT
     @Override
@@ -34,11 +33,8 @@ public class ExpendActivity extends AppCompatActivity {
         ExpenselistRCV.setLayoutManager(new LinearLayoutManager(this));
         xpAdaptor = new XpnseAdaptor(this, getAllXpense());
         ExpenselistRCV.setAdapter(xpAdaptor);
-        //String[] Expenditure = {"Travel", "Food", "Bills", "Fees", "Rent", "Travel", "Food", "Bills", "Fees", "Rent", "Travel", "Food", "Bills", "Fees", "Rent", "Travel", "Food", "Bills", "Fees", "Rent", "Travel", "Food", "Bills", "Fees", "Rent"};
-        //ExpenselistRCV.setAdapter(new XpnseAdaptor(Expenditure));
 
         Cursor dcursor = expdb.rawQuery("SELECT SUM(" + CeledgerContract.XpenseEntry.AMOUNT + ") as Total FROM " + CeledgerContract.XpenseEntry.XPENSE_TABLE, null);
-
         if (dcursor.moveToFirst()) {
             xpTotal = dcursor.getFloat(dcursor.getColumnIndex("Total"));// get final total
         }
