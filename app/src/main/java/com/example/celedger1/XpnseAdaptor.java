@@ -20,14 +20,6 @@ public class XpnseAdaptor extends RecyclerView.Adapter<XpnseAdaptor.XpnseViewHol
 
     private Context xpContext;
     private Cursor xpCursor;
-    private Integer layout_num;
-
-    /*public XpnseAdaptor(Context context, Cursor cursor, Integer layout)
-    {
-        xpContext = context;
-        xpCursor = cursor;
-        layout_num = layout;
-    }*/
 
     public XpnseAdaptor(Context context, Cursor cursor)
     {
@@ -64,15 +56,6 @@ public class XpnseAdaptor extends RecyclerView.Adapter<XpnseAdaptor.XpnseViewHol
 
     //NUMBER OF ITEMS TO BE SHOWN IN THE VIEW
     @Override
-    /*public int getItemCount()  {
-        if(layout_num==1){
-            return 3;
-        }
-        else{
-            return xpCursor.getCount();
-        }
-    }*/
-
     public int getItemCount()  {
             return xpCursor.getCount();
     }
